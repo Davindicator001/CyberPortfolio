@@ -40,6 +40,7 @@ export default function About() {
 
                     {/* Profile image */}
                     <div className="glass about-image-card" style={{
+                        position: 'relative',
                         borderRadius: 'var(--radius-xl)',
                         overflow: 'hidden',
                         border: '1px solid var(--border-glow)',
@@ -48,40 +49,75 @@ export default function About() {
                         transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
                     }}>
                         <div style={{
+                            position: 'relative',
                             width: '100%',
                             height: '380px',
-                            background: 'linear-gradient(180deg, rgba(0,242,255,0.08) 0%, rgba(0,0,0,0.6) 100%)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            flexDirection: 'column',
-                            gap: '1rem',
                         }}>
-                            <div style={{
-                                width: '120px',
-                                height: '120px',
-                                borderRadius: '50%',
-                                background: 'linear-gradient(135deg, var(--primary-dim), rgba(0,0,0,0.3))',
-                                border: '2px solid var(--border-glow)',
+                            {/* Text / initials layer */}
+                            <div className="profile-placeholder" style={{
+                                position: 'absolute',
+                                inset: 0,
                                 display: 'flex',
+                                flexDirection: 'column',
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                fontSize: '2.5rem',
-                                fontWeight: 900,
-                                color: 'var(--primary)',
-                                fontFamily: 'var(--font-mono)',
+                                gap: '1rem',
+                                background: 'linear-gradient(180deg, rgba(0,242,255,0.08) 0%, rgba(0,0,0,0.6) 100%)',
                             }}>
-                                VA
+                                <div style={{
+                                    width: '120px',
+                                    height: '120px',
+                                    borderRadius: '50%',
+                                    background: 'linear-gradient(135deg, var(--primary-dim), rgba(0,0,0,0.3))',
+                                    border: '2px solid var(--border-glow)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    fontSize: '2.5rem',
+                                    fontWeight: 900,
+                                    color: 'var(--primary)',
+                                    fontFamily: 'var(--font-mono)',
+                                }}>
+                                    VA
+                                </div>
+                                <span style={{
+                                    fontFamily: 'var(--font-mono)',
+                                    fontSize: '0.75rem',
+                                    color: 'var(--text-muted)',
+                                    letterSpacing: '0.15em',
+                                    textTransform: 'uppercase',
+                                }}>
+                                    Victor Akande
+                                </span>
                             </div>
-                            <span style={{
-                                fontFamily: 'var(--font-mono)',
-                                fontSize: '0.75rem',
-                                color: 'var(--text-muted)',
-                                letterSpacing: '0.15em',
-                                textTransform: 'uppercase',
-                            }}>
-                                Victor Akande
-                            </span>
+
+                            {/* Image layers (fade in/out) */}
+                            <img
+                                className="profile-photo"
+                                src="../assets/me.png"
+                                alt="Victor Akande"
+                                style={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover',
+                                    opacity: 0,
+                                }}
+                            />
+                            <img
+                                className="profile-photo profile-photo-2"
+                                src="../assets/laptop_picture.jpg"
+                                alt="Victor Akande"
+                                style={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover',
+                                    opacity: 0,
+                                }}
+                            />
                         </div>
                     </div>
 
@@ -112,6 +148,9 @@ export default function About() {
                         }}>
                             <p>
                                 I'm Victor Akande — also known as <span style={{ color: 'var(--primary)', fontFamily: 'var(--font-mono)' }}>DavinDicator</span>. I thrive at the intersection of creativity and code. My journey spans across web development, mobile apps, desktop applications, and game development.
+                            </p>
+                            <p>
+                                Currently, I serve as the <strong>Lead Backend Developer</strong> at <a href="https://algoritic.com.ng" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>Algoritic Inc.</a>, where I architect scalable APIs and lead backend innovation.
                             </p>
                             <p>
                                 My philosophy? <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>Creating, Crashing, Solving — On Repeat.</span> Every bug is a puzzle, every project is an adventure, and every line of code is a step toward something extraordinary.
@@ -163,10 +202,63 @@ export default function About() {
           opacity: 1 !important;
           transform: translateX(0) !important;
         }
+        .about-visible .about-image-card .profile-placeholder {
+          animation: fadeSwap 12s ease-in-out infinite;
+        }
+        .about-visible .about-image-card .profile-photo {
+          animation: fadeSwapImage1 12s ease-in-out infinite;
+        }
+        .about-visible .about-image-card .profile-photo-2 {
+          animation: fadeSwapImage2 12s ease-in-out infinite;
+        }
         .about-visible .about-text {
           opacity: 1 !important;
           transform: translateY(0) !important;
         }
+
+        @keyframes fadeSwap {
+          0%,
+          35% {
+            opacity: 1;
+          }
+          40%,
+          95% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
+        @keyframes fadeSwapImage1 {
+          0%,
+          35% {
+            opacity: 0;
+          }
+          40%,
+          60% {
+            opacity: 1;
+          }
+          65%,
+          100% {
+            opacity: 0;
+          }
+        }
+
+        @keyframes fadeSwapImage2 {
+          0%,
+          60% {
+            opacity: 0;
+          }
+          65%,
+          95% {
+            opacity: 1;
+          }
+          100% {
+            opacity: 0;
+          }
+        }
+
         @media (max-width: 768px) {
           .about-grid {
             grid-template-columns: 1fr !important;

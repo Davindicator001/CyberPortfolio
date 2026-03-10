@@ -4,21 +4,23 @@ const projects = [
     {
         title: 'NewsFlashLatest',
         description: 'A dynamic blog platform delivering trending news across categories. Features real-time updates, responsive design, and optimized content delivery for seamless reading.',
-        tags: ['REACT', 'NEXT.JS', 'API', 'CSS'],
+        tags: ['REACT.JS', 'NODE.JS', 'API', 'GSAP', 'CSS','EXPRESS.JS','SUPABASE','TAILWIND'],
+        icon: '../assets/newsflashlatest.jpeg',
         color: '#00f2ff',
-        link: '#',
+        link: 'https://newsflashlatest.vercel.app',
     },
     {
         title: 'Evergreen Hotels',
         description: 'A luxury hotel booking and management system with an elegant UI. Includes room availability, reservation management, and a premium guest experience.',
-        tags: ['REACT', 'NODE.JS', 'MONGODB', 'TAILWIND'],
+        tags: ['REACT.JS', 'CSS', 'GSAP', 'TAILWIND', 'API'],
+        icon: '../assets/evergreen.png',
         color: '#00f2ff',
-        link: '#',
+        link: 'https://evergreenhotels.com.ng',
     },
     {
         title: 'KLYVEX Platform',
         description: 'A full-stack web application with authentication, leaderboards, and interactive features. Built with modern web technologies and optimized for performance.',
-        tags: ['REACT', 'FIREBASE', 'TYPESCRIPT', 'GSAP'],
+        tags: ['REACT.JS', 'FIREBASE', 'TYPESCRIPT', 'GSAP', 'API'],
         color: '#00f2ff',
         link: '#',
     },
@@ -72,6 +74,11 @@ function ProjectCard({ project, index }) {
             </span>
 
             {/* Image placeholder */}
+            {project.icon ? <img style={{
+                width: '100%',
+                height: '220px',
+                objectFit: 'cover',
+            }} src={project.icon} alt={project.title} /> : (
             <div style={{
                 width: '100%',
                 height: '220px',
@@ -105,7 +112,7 @@ function ProjectCard({ project, index }) {
                     background: 'linear-gradient(to top, rgba(10,10,10,0.9), transparent)',
                 }} />
             </div>
-
+            )}
             {/* Title */}
             <h3 style={{
                 fontSize: '1.5rem',
@@ -146,6 +153,15 @@ function ProjectCard({ project, index }) {
                 transition: 'all 0.3s ease',
                 color: 'var(--primary)',
                 fontSize: '1.1rem',
+            }}
+            onClick={() => window.open(project.link, '_blank')}
+            onMouseEnter={e => {
+                e.currentTarget.style.transform = 'translate(4px, -4px)'
+                e.currentTarget.style.boxShadow = '0 4px 15px rgba(0,242,255,0.6)'
+            }}
+            onMouseLeave={e => {
+                e.currentTarget.style.transform = 'translate(0, 0)'
+                e.currentTarget.style.boxShadow = 'none'
             }}>
                 ↗
             </div>

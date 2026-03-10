@@ -145,7 +145,7 @@ export default function Hero() {
                                 flexDirection: 'column',
                                 gap: '1rem',
                             }}>
-                                <span style={{
+                                {/* <span style={{
                                     fontSize: '4rem',
                                     fontWeight: 900,
                                     color: 'var(--primary)',
@@ -157,7 +157,8 @@ export default function Hero() {
                                     fontSize: '0.75rem',
                                     color: 'var(--text-muted)',
                                     letterSpacing: '0.1em',
-                                }}>DAVINDICATOR</span>
+                                }}>DAVINDICATOR</span> */}
+                                <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src="../assets/me.png" alt="Profile" />
                             </div>
 
                             {/* Corner decorations */}
