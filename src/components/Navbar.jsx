@@ -5,6 +5,7 @@ const navLinks = [
     { label: 'About', href: '#about' },
     { label: 'Stack', href: '#stack' },
     { label: 'Contact', href: '#contact' },
+    { label: 'Resume', href: 'https://drive.google.com/file/d/1cL9L6hfmUgwcVyYvD-mU779DBY0FIc1z/view?usp=drivesdk' },
 ]
 
 export default function Navbar() {
@@ -20,6 +21,10 @@ export default function Navbar() {
     const handleClick = (e, href) => {
         e.preventDefault()
         setMobileOpen(false)
+        if (href.startsWith('http')) {
+            window.open(href, '_blank')
+            return
+        }
         document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
     }
 
