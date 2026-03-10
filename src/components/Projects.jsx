@@ -13,7 +13,7 @@ const projects = [
         title: 'Evergreen Hotels',
         description: 'A luxury hotel booking and management system with an elegant UI. Includes room availability, reservation management, and a premium guest experience.',
         tags: ['REACT.JS', 'CSS', 'GSAP', 'TAILWIND', 'API'],
-        icon: '/assets/evergreen.png',
+        icon: '/assets/evergreen.PNG',
         color: '#00f2ff',
         link: 'https://evergreenhotels.com.ng',
     },
