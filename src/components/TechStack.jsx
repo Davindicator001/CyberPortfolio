@@ -1,22 +1,22 @@
 import { useEffect, useRef } from 'react'
 
 const technologies = [
-    { name: 'React', icon: '⚛️' },
-    { name: 'Next.js', icon: '▲' },
-    { name: 'TypeScript', icon: '🔷' },
-    { name: 'JavaScript', icon: '🟨' },
-    { name: 'Node.js', icon: '🟢' },
-    { name: 'Python', icon: '🐍' },
-    { name: 'C#', icon: '🟣' },
-    { name: 'HTML/CSS', icon: '🌐' },
-    { name: 'MongoDB', icon: '🍃' },
-    { name: 'Firebase', icon: '🔥' },
-    { name: 'Git', icon: '📦' },
-    { name: 'Tailwind', icon: '🎨' },
-    { name: 'GSAP', icon: '✨' },
-    { name: 'SQL', icon: '🗄️' },
-    { name: 'Power BI', icon: '📊' },
-    { name: 'REST APIs', icon: '🔗' },
+    { name: 'React', icon: 'fab fa-react' },
+    { name: 'Next.js', icon: 'fas fa-code' },
+    { name: 'TypeScript', icon: 'fas fa-code' },
+    { name: 'JavaScript', icon: 'fab fa-js' },
+    { name: 'Node.js', icon: 'fab fa-node-js' },
+    { name: 'Python', icon: 'fab fa-python' },
+    { name: 'C#', icon: 'fas fa-code' },
+    { name: 'HTML/CSS', icon: 'fab fa-html5' },
+    { name: 'MongoDB', icon: 'fas fa-database' },
+    { name: 'Firebase', icon: 'fas fa-fire' },
+    { name: 'Git', icon: 'fab fa-git-alt' },
+    { name: 'Tailwind', icon: 'fas fa-wind' },
+    { name: 'GSAP', icon: 'fas fa-magic' },
+    { name: 'SQL', icon: 'fas fa-database' },
+    { name: 'Power BI', icon: 'fas fa-chart-line' },
+    { name: 'REST APIs', icon: 'fas fa-link' },
 ]
 
 function TechCard({ tech, index }) {
@@ -65,7 +65,9 @@ function TechCard({ tech, index }) {
                 e.currentTarget.style.boxShadow = 'none'
             }}
         >
-            <span style={{ fontSize: '2rem' }}>{tech.icon}</span>
+            <span style={{ fontSize: '2.25rem' }}>
+                <i className={tech.icon} aria-hidden="true" />
+            </span>
             <span style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: '0.8rem',
