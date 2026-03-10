@@ -33,7 +33,7 @@ export default function About() {
 
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: '300px 1fr',
+                    gridTemplateColumns: 'minmax(250px, 300px) 1fr',
                     gap: '3rem',
                     alignItems: 'start',
                 }} className="about-grid">
@@ -47,6 +47,7 @@ export default function About() {
                         opacity: 0,
                         transform: 'translateX(-30px)',
                         transition: 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
+                        maxWidth: '100%',
                     }}>
                         <div style={{
                             position: 'relative',
@@ -94,7 +95,7 @@ export default function About() {
                             {/* Image layers (fade in/out) */}
                             <img
                                 className="profile-photo"
-                                src="../assets/me.png"
+                                src="../public/assets/me.png"
                                 alt="Victor Akande"
                                 style={{
                                     position: 'absolute',
@@ -107,7 +108,7 @@ export default function About() {
                             />
                             <img
                                 className="profile-photo profile-photo-2"
-                                src="../assets/laptop_picture.jpg"
+                                src="../public/assets/laptop_picture.jpg"
                                 alt="Victor Akande"
                                 style={{
                                     position: 'absolute',
@@ -264,7 +265,8 @@ export default function About() {
             grid-template-columns: 1fr !important;
           }
           .about-image-card {
-            max-width: 280px;
+            width: 100% !important;
+            max-width: none !important;
             margin: 0 auto;
           }
         }

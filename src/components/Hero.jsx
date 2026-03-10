@@ -158,7 +158,7 @@ export default function Hero() {
                                     color: 'var(--text-muted)',
                                     letterSpacing: '0.1em',
                                 }}>DAVINDICATOR</span> */}
-                                <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src="../assets/me.png" alt="Profile" />
+                                <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src="../public/assets/me.png" alt="Profile" />
                             </div>
 
                             {/* Corner decorations */}
@@ -187,7 +187,7 @@ export default function Hero() {
                 </div>
 
                 {/* Scroll indicator */}
-                <div className="animate-fade-in" style={{
+                <div className="animate-fade-in scroll-indicator" style={{
                     position: 'absolute',
                     bottom: '2rem',
                     left: '50%',
@@ -224,6 +224,13 @@ export default function Hero() {
           }
           .hero-image-wrapper {
             display: none !important;
+          }
+          .scroll-indicator {
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+            transform: none !important;
+            margin-top: 2.5rem;
           }
         }
       `}</style>

@@ -294,5 +294,6 @@ button {
 
   .section-title {
     font-size: clamp(1.8rem, 7vw, 2.5rem);
+    margin-bottom: 1.5rem;
   }
 }

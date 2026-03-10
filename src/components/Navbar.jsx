@@ -18,14 +18,31 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', onScroll)
     }, [])
 
+
     const handleClick = (e, href) => {
         e.preventDefault()
-        setMobileOpen(false)
         if (href.startsWith('http')) {
+            setMobileOpen(false)
             window.open(href, '_blank')
             return
         }
-        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+
+        const target = document.querySelector(href)
+        if (!target) return
+
+        const scrollToTarget = () => {
+            const navHeight = document.querySelector('nav')?.offsetHeight ?? 0
+            const top = target.getBoundingClientRect().top + window.scrollY - navHeight
+            window.scrollTo({ top, behavior: 'smooth' })
+        }
+
+        if (mobileOpen) {
+            setMobileOpen(false)
+            // Wait for the mobile menu to close before scrolling to avoid offset issues.
+            requestAnimationFrame(scrollToTarget)
+        } else {
+            scrollToTarget()
+        }
     }
 
     return (
@@ -105,43 +122,45 @@ export default function Navbar() {
             </button>
 
             {/* Mobile Menu */}
-            {mobileOpen && (
-                <div style={{
-                    position: 'fixed',
-                    top: '60px',
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    background: 'rgba(10, 10, 10, 0.97)',
-                    backdropFilter: 'blur(20px)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '2.5rem',
-                    zIndex: 99,
-                }}>
-                    {navLinks.map(link => (
-                        <a
-                            key={link.label}
-                            href={link.href}
-                            onClick={(e) => handleClick(e, link.href)}
-                            style={{
-                                fontFamily: 'var(--font-mono)',
-                                fontSize: '1.2rem',
-                                color: 'var(--text-secondary)',
-                                letterSpacing: '0.1em',
-                                textTransform: 'uppercase',
-                            }}
-                        >
-                            {link.label}
-                        </a>
-                    ))}
-                    <a href="#contact" onClick={(e) => handleClick(e, '#contact')} className="btn-primary">
-                        <span>⚡</span> HIRE ME
+            <div style={{
+                position: 'absolute',
+                top: '100%',
+                right: '1rem',
+                width: 'min(320px, 90vw)',
+                background: 'rgba(0, 0, 0, 0.92)',
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                borderRadius: '16px',
+                boxShadow: '0 24px 48px rgba(0,0,0,0.45)',
+                padding: '1.25rem 1.5rem',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1.5rem',
+                opacity: mobileOpen ? 1 : 0,
+                transform: mobileOpen ? 'translateY(0)' : 'translateY(-10px)',
+                pointerEvents: mobileOpen ? 'auto' : 'none',
+                transition: 'opacity 220ms ease, transform 220ms ease',
+                zIndex: 99,
+            }}>
+                {navLinks.map(link => (
+                    <a
+                        key={link.label}
+                        href={link.href}
+                        onClick={(e) => handleClick(e, link.href)}
+                        style={{
+                            fontFamily: 'var(--font-mono)',
+                            fontSize: '1.1rem',
+                            color: 'var(--text-secondary)',
+                            letterSpacing: '0.1em',
+                            textTransform: 'uppercase',
+                        }}
+                    >
+                        {link.label}
                     </a>
-                </div>
-            )}
+                ))}
+                <a href="#contact" onClick={(e) => handleClick(e, '#contact')} className="btn-primary">
+                    <span>⚡</span> HIRE ME
+                </a>
+            </div>
 
             <style>{`
         @media (max-width: 768px) {
