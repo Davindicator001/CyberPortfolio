@@ -124,8 +124,8 @@ export default function Hero() {
                         animationFillMode: 'forwards',
                     }}>
                         <div className="glass animate-float" style={{
-                            width: '280px',
-                            height: '340px',
+                            width: 'min(260px, 85vw)',
+                            height: 'min(320px, 50vh)',
                             borderRadius: 'var(--radius-xl)',
                             display: 'flex',
                             alignItems: 'center',
@@ -158,7 +158,7 @@ export default function Hero() {
                                     color: 'var(--text-muted)',
                                     letterSpacing: '0.1em',
                                 }}>DAVINDICATOR</span> */}
-                                <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src="../public/assets/me.png" alt="Profile" />
+                                <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src="/assets/me.png" alt="Profile" />
                             </div>
 
                             {/* Corner decorations */}

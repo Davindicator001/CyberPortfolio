@@ -95,7 +95,7 @@ export default function About() {
                             {/* Image layers (fade in/out) */}
                             <img
                                 className="profile-photo"
-                                src="../public/assets/me.png"
+                                src="/assets/me.png"
                                 alt="Victor Akande"
                                 style={{
                                     position: 'absolute',
@@ -108,7 +108,7 @@ export default function About() {
                             />
                             <img
                                 className="profile-photo profile-photo-2"
-                                src="../public/assets/laptop_picture.jpg"
+                                src="/assets/laptop_picture.jpg"
                                 alt="Victor Akande"
                                 style={{
                                     position: 'absolute',

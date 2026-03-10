@@ -134,7 +134,7 @@ button {
 
 /* --- Section Layout --- */
 .section {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: var(--space-2xl) var(--space-md);
   position: relative;
